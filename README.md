@@ -1,2 +1,2 @@
-# jenkins-zero-to-hero
-Jenkins, From Zero To Hero
+# Jenkins, From Zero To Hero
+https://www.udemy.com/course/jenkins-from-zero-to-hero/
