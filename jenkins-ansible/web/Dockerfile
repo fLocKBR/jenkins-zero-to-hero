@@ -5,7 +5,7 @@ COPY ./conf/nginx.repo /etc/yum.repos.d/nginx.repo
 RUN                                                                          \
   yum -y install nginx-1.12.2 openssl --enablerepo=nginx                  && \
   yum -y install epel-release yum-utils                               && \
-  yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm      && \
+  yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm      && \
   yum-config-manager --enable remi-php73                                  && \
   yum -y install php php-common php-opcache php-mcrypt php-cli php-gd php-curl php-mysqlnd
 
