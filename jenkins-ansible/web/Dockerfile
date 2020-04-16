@@ -4,20 +4,10 @@ COPY ./conf/nginx.repo /etc/yum.repos.d/nginx.repo
 
 RUN                                                                          \
   yum -y install nginx-1.12.2 openssl --enablerepo=nginx                  && \
-  yum -y install https://centos7.iuscommunity.org/ius-release.rpm         && \
-  yum -y install                                                             \
-    php71u-fpm                                                               \
-    php71u-cli                                                               \
-    php71u-mysqlnd                                                           \
-    php71u-soap                                                              \
-    php71u-xml                                                               \
-    php71u-zip                                                               \
-    php71u-json                                                              \
-    php71u-mcrypt                                                            \
-    php71u-mbstring                                                          \
-    php71u-zip                                                               \
-    php71u-gd                                                                \
-     --enablerepo=ius && yum clean all
+  yum -y yum install epel-release yum-utils                               && \
+  yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm      && \
+  yum-config-manager --enable remi-php73                                  && \
+  yum -y install php php-common php-opcache php-mcrypt php-cli php-gd php-curl php-mysqlnd
 
 EXPOSE 80 443
 
