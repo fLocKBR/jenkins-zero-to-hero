@@ -19,6 +19,6 @@ COPY ./bin/start.sh /start.sh
 
 RUN chmod +x /start.sh
 
-RUN service php-fpm start
+RUN sytemctl start php-fpm
 
 CMD /start.sh
