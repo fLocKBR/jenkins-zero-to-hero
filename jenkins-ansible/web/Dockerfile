@@ -6,17 +6,17 @@ RUN                                                                          \
   yum -y install nginx-1.12.2 openssl --enablerepo=nginx                  && \
   yum -y install https://centos7.iuscommunity.org/ius-release.rpm         && \
   yum -y install                                                             \
-    php72u-fpm                                                               \
-    php72u-cli                                                               \
-    php72u-mysqlnd                                                           \
-    php72u-soap                                                              \
-    php72u-xml                                                               \
-    php72u-zip                                                               \
-    php72u-json                                                              \
-    php72u-mcrypt                                                            \
-    php72u-mbstring                                                          \
-    php72u-zip                                                               \
-    php72u-gd                                                                \
+    php71u-fpm                                                               \
+    php71u-cli                                                               \
+    php71u-mysqlnd                                                           \
+    php71u-soap                                                              \
+    php71u-xml                                                               \
+    php71u-zip                                                               \
+    php71u-json                                                              \
+    php71u-mcrypt                                                            \
+    php71u-mbstring                                                          \
+    php71u-zip                                                               \
+    php71u-gd                                                                \
      --enablerepo=ius && yum clean all
 
 EXPOSE 80 443
