@@ -27,6 +27,7 @@ COPY ./conf/nginx.conf /etc/nginx/conf.d/default.conf
 
 COPY ./bin/start.sh /start.sh
 
-RUN chmod +x /start.sh
+RUN mkdir -p /run/php-fpm  && \
+    chmod +x /start.sh
 
 CMD /start.sh
