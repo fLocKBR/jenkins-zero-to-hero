@@ -3,6 +3,7 @@ services:
   jenkins:
     container_name: jenkins
     image: jenkins-ansible
+    restart: always
     build:
       context: jenkins-ansible
     ports:
@@ -15,6 +16,7 @@ services:
   remote_host:
     container_name: remote-host
     image: remote-host
+    restart: always
     build:
       context: centos
     networks:
@@ -23,6 +25,7 @@ services:
   db_host:
     container_name: db
     image: mysql:5.7
+    restart: always
     environment:
       - "MYSQL_ROOT_PASSWORD=1234"
     volumes:
@@ -33,6 +36,7 @@ services:
   web:
     container_name: web
     image: ansible-web
+    restart: always
     build:
       context: jenkins-ansible/web/
     ports:
@@ -40,6 +44,17 @@ services:
     networks:
       - net
 
+  git:
+    image: 'gitlab/gitlab-ce:latest'
+    restart: always
+    hostname: 'gitlab.local'
+    ports:
+      - '8088:80'
+    volumes:
+      - '$GITLAB_HOME/gitlab/config:/etc/gitlab'
+      - '$GITLAB_HOME/gitlab/logs:/var/log/gitlab'
+      - '$GITLAB_HOME/gitlab/data:/var/opt/gitlab'
+    
 volumes:
   jenkins_home:
   db_data:
